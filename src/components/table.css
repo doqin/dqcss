@@ -1,0 +1,63 @@
+/* border-collapse: separate so the table itself can carry the border and hard shadow. */
+.dq-table {
+    width: 100%;
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    box-shadow: var(--dq-shadow-offset) var(--dq-shadow-offset) 0 var(--dq-shadow-color);
+    text-align: left;
+}
+.dq-table caption {
+    padding-bottom: var(--dq-space-2);
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+}
+.dq-table th,
+.dq-table td {
+    padding: var(--dq-space-2) var(--dq-space-4);
+}
+.dq-table tbody th,
+.dq-table tbody td {
+    border-top: 1px solid var(--dq-color-border);
+}
+.dq-table tbody tr:first-child th,
+.dq-table tbody tr:first-child td {
+    border-top: 0;
+}
+.dq-table thead th {
+    border-bottom: var(--dq-border-width) solid var(--dq-color-primary);
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.dq-table tbody th {
+    font-weight: 600;
+}
+.dq-table tbody tr:hover {
+    background: color-mix(in srgb, var(--dq-color-secondary) 35%, var(--dq-color-bg));
+}
+.dq-table--striped tbody tr:nth-child(even) {
+    background: color-mix(in srgb, var(--dq-color-link) 8%, var(--dq-color-bg));
+}
+.dq-table--striped tbody tr:nth-child(even):hover {
+    background: color-mix(in srgb, var(--dq-color-secondary) 35%, var(--dq-color-bg));
+}
+.dq-table tbody tr[aria-selected="true"] {
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    font-weight: 700;
+}
+.dq-table__num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Scroll wrapper for narrow screens; padding leaves room for the shadow it would otherwise clip. */
+.dq-table-wrap {
+    overflow-x: auto;
+    padding: 0 var(--dq-shadow-offset) var(--dq-shadow-offset) 0;
+}

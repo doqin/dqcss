@@ -64,6 +64,19 @@
 			<div class="dq-tabs__panel" role="tabpanel" id="p-adv" aria-labelledby="t-adv" hidden>Advanced chipset settings.</div>
 			<div class="dq-tabs__panel" role="tabpanel" id="p-boot" aria-labelledby="t-boot" hidden>Boot device priority.</div>
 		</div>
+		<div class="dq-table-wrap">
+			<table class="dq-table dq-table--striped">
+				<thead>
+					<tr><th scope="col">Device</th><th scope="col">Type</th><th scope="col" class="dq-table__num">Size (GB)</th></tr>
+				</thead>
+				<tbody>
+					<tr><th scope="row">Primary master</th><td>SSD</td><td class="dq-table__num">512</td></tr>
+					<tr aria-selected="true"><th scope="row">Primary slave</th><td>HDD</td><td class="dq-table__num">2000</td></tr>
+					<tr><th scope="row">Secondary master</th><td>CD-ROM</td><td class="dq-table__num">0</td></tr>
+					<tr><th scope="row">USB drive</th><td>Flash</td><td class="dq-table__num">64</td></tr>
+				</tbody>
+			</table>
+		</div>
 		<ul class="dq-menu" role="listbox">
 			<li class="dq-menu__item" role="option" tabindex="0">Main</li>
 			<li class="dq-menu__item" role="option" tabindex="0" aria-selected="true">Advanced</li>

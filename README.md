@@ -24,6 +24,7 @@ Text uses IBM Plex Mono if you load it (the demo does, from Google Fonts) and fa
 | Badge | `.dq-badge`, `--secondary`, `--success`, `--warning`, `--danger`, `--solid`, `--halftone` |
 | Menu | `.dq-menu` with `.dq-menu__item`. `aria-selected="true"` shows the cyan selection bar |
 | Tabs | `.dq-tabs` with `__list`, `__tab` (`role="tab"`) and `__panel` (`role="tabpanel"`). The selected tab is cyan and joins its panel. Needs `dqcss-tabs.js` to switch |
+| Table | `.dq-table` on a `<table>`, `--striped`, `.dq-table__num` for right-aligned numbers, `.dq-table-wrap` for horizontal scroll. Header row is cyan; `aria-selected="true"` on a row highlights it |
 | Modal | `.dq-modal` on a native `<dialog>` (open with `showModal()`), `.dq-modal__actions`. Use `<form method="dialog">` for buttons that close it |
 
 Layout helpers: `.dq-container`, `.dq-stack`, `.dq-row`.
