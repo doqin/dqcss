@@ -1,0 +1,47 @@
+/* <div class="dq-tabs"><div class="dq-tabs__list" role="tablist"><button class="dq-tabs__tab" role="tab" aria-selected="true" aria-controls="p1">… */
+.dq-tabs__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dq-space-1);
+}
+.dq-tabs__tab {
+    position: relative;
+    /* no bottom border: the panel's top border closes the tab. Padding makes up the height. */
+    padding: var(--dq-space-2) var(--dq-space-4) calc(var(--dq-space-2) + var(--dq-border-width));
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-bottom: 0;
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    color: var(--dq-color-fg);
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.dq-tabs__tab:hover {
+    background: color-mix(in srgb, var(--dq-color-secondary) 35%, var(--dq-color-bg));
+}
+.dq-tabs__tab:focus-visible {
+    outline: none;
+    z-index: 2;
+    box-shadow: var(--dq-ring);
+}
+/* Selected tab is cyan and overlaps the panel's top border so the two read as one piece. */
+.dq-tabs__tab[aria-selected="true"] {
+    z-index: 1;
+    margin-bottom: calc(var(--dq-border-width) * -1);
+    padding-bottom: calc(var(--dq-space-2) + var(--dq-border-width) * 2);
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+}
+.dq-tabs__tab:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dq-tabs__panel {
+    padding: var(--dq-space-4);
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    box-shadow: var(--dq-shadow-offset) var(--dq-shadow-offset) 0 var(--dq-shadow-color);
+}

@@ -23,16 +23,21 @@ Text uses IBM Plex Mono if you load it (the demo does, from Google Fonts) and fa
 | Progress | `.dq-progress` on a native `<progress>`, `--secondary`, `--success`, `--warning`, `--danger`. Omit `value` for indeterminate |
 | Badge | `.dq-badge`, `--secondary`, `--success`, `--warning`, `--danger`, `--solid`, `--halftone` |
 | Menu | `.dq-menu` with `.dq-menu__item`. `aria-selected="true"` shows the cyan selection bar |
+| Tabs | `.dq-tabs` with `__list`, `__tab` (`role="tab"`) and `__panel` (`role="tabpanel"`). The selected tab is cyan and joins its panel. Needs `dqcss-tabs.js` to switch |
 | Modal | `.dq-modal` on a native `<dialog>` (open with `showModal()`), `.dq-modal__actions`. Use `<form method="dialog">` for buttons that close it |
 
 Layout helpers: `.dq-container`, `.dq-stack`, `.dq-row`.
 
-### Menu keyboard support (optional)
+### Optional scripts
 
-The menu is styled by CSS alone. Add the script for arrow keys, Home/End, Enter/Space selection and a `dq-select` event:
+The CSS works on its own, except that tabs need their script to switch panels.
+
+- `dqcss-menu.js`: arrow keys, Home/End, Enter/Space selection and a `dq-select` event for `.dq-menu`.
+- `dqcss-tabs.js`: click and arrow-key tab switching, Home/End, panel show/hide and a `dq-tab-select` event for `.dq-tabs`.
 
 ```html
 <script src="node_modules/dqcss/dist/dqcss-menu.js"></script>
+<script src="node_modules/dqcss/dist/dqcss-tabs.js"></script>
 ```
 
 ## Theming

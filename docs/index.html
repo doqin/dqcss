@@ -54,6 +54,16 @@
 			<span class="dq-badge dq-badge--solid dq-badge--danger dq-badge--halftone">Hot!</span>
 			<span class="dq-badge dq-badge--halftone">Beta</span>
 		</div>
+		<div class="dq-tabs">
+			<div class="dq-tabs__list" role="tablist">
+				<button class="dq-tabs__tab" role="tab" id="t-main" aria-controls="p-main" aria-selected="true">Main</button>
+				<button class="dq-tabs__tab" role="tab" id="t-adv" aria-controls="p-adv">Advanced</button>
+				<button class="dq-tabs__tab" role="tab" id="t-boot" aria-controls="p-boot">Boot</button>
+			</div>
+			<div class="dq-tabs__panel" role="tabpanel" id="p-main" aria-labelledby="t-main">System information.</div>
+			<div class="dq-tabs__panel" role="tabpanel" id="p-adv" aria-labelledby="t-adv" hidden>Advanced chipset settings.</div>
+			<div class="dq-tabs__panel" role="tabpanel" id="p-boot" aria-labelledby="t-boot" hidden>Boot device priority.</div>
+		</div>
 		<ul class="dq-menu" role="listbox">
 			<li class="dq-menu__item" role="option" tabindex="0">Main</li>
 			<li class="dq-menu__item" role="option" tabindex="0" aria-selected="true">Advanced</li>
@@ -93,6 +103,7 @@
 		</form>
 	</dialog>
 	<script src="../dist/dqcss-menu.js"></script>
+	<script src="../dist/dqcss-tabs.js"></script>
   <script>
     document.getElementById("theme-toggle").addEventListener("click", function () {
       var root = document.documentElement;

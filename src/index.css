@@ -9,5 +9,6 @@
 @import "./components/progress.css";
 @import "./components/badge.css";
 @import "./components/menu.css";
+@import "./components/tabs.css";
 @import "./components/modal.css";
 @import "./utilities/layout.css";
