@@ -38,5 +38,5 @@
     border-color: var(--dq-color-danger);
 }
 .dq-field--error .dq-field__hint {
-    color: var(--dq-color-danger);
+    color: var(--dq-color-danger-text);
 }

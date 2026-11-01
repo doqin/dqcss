@@ -46,7 +46,8 @@
 .dq-table--striped tbody tr:nth-child(even):hover {
     background: color-mix(in srgb, var(--dq-color-secondary) 35%, var(--dq-color-bg));
 }
-.dq-table tbody tr[aria-selected="true"] {
+/* :is() raises specificity so a selected row stays cyan when striped or hovered. */
+.dq-table tbody tr[aria-selected="true"]:is(:hover, :nth-child(n)) {
     background: var(--dq-color-secondary);
     color: var(--dq-color-secondary-fg);
     font-weight: 700;

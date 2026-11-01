@@ -1,0 +1,30 @@
+/* Shared halftone dots on a 45deg grid: one layer at the tile origin, one offset by half a tile.
+   Elements opt in by being listed here and setting --dq-dot-color and --dq-dot-radius
+   (--dq-dot-tile is optional). Dots are transparent until a component gives them a color. */
+.dq-btn,
+.dq-btn::before,
+.dq-badge--halftone::before,
+.dq-badge--halftone::after,
+.dq-modal::backdrop {
+    --_tile: var(--dq-dot-tile, var(--dq-halftone-size));
+    background-image: radial-gradient(
+            circle at center,
+            var(--dq-dot-color) var(--dq-dot-radius),
+            transparent calc(var(--dq-dot-radius) + 0.5px)
+        ),
+        radial-gradient(
+            circle at center,
+            var(--dq-dot-color) var(--dq-dot-radius),
+            transparent calc(var(--dq-dot-radius) + 0.5px)
+        );
+    background-size: var(--_tile) var(--_tile);
+    background-position: 0 0, calc(var(--_tile) / 2) calc(var(--_tile) / 2);
+}
+@keyframes dq-halftone-scroll {
+    from {
+        background-position: 0 0, calc(var(--_tile) / 2) calc(var(--_tile) / 2);
+    }
+    to {
+        background-position: var(--_tile) var(--_tile), calc(var(--_tile) * 1.5) calc(var(--_tile) * 1.5);
+    }
+}

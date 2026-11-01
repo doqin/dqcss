@@ -43,7 +43,7 @@ The CSS works on its own, except that tabs need their script to switch panels.
 
 ## Theming
 
-Dark mode follows the OS. Set `data-theme="light"` or `"dark"` on `<html>` to force one. Everything is driven by `--dq-*` custom properties in `src/tokens.css`: colors (`--dq-color-*`), border width, shadow offset and color, halftone and checker sizes.
+Light is the default. Set `data-theme="dark"` on `<html>` for dark mode; it does not follow the OS setting. Everything is driven by `--dq-*` custom properties in `src/tokens.css`: colors (`--dq-color-*`), border width, shadow offset and color, halftone and checker sizes.
 
 Cyan text is not readable on light backgrounds, so `--dq-color-secondary` is always paired with black (`--dq-color-secondary-fg`).
 
@@ -57,7 +57,7 @@ npm run dev   # then open /docs/index.html
 
 ## Structure
 
-- `src/tokens.css`: design tokens (dark mode via `prefers-color-scheme` or `data-theme`)
+- `src/tokens.css`: design tokens (dark mode via `data-theme="dark"`)
 - `src/base/`: reset and element defaults
 - `src/components/`: `.dq-*` component classes with BEM-style modifiers
 - `src/utilities/`: layout helpers

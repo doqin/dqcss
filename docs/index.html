@@ -9,6 +9,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap">
 	<link rel="stylesheet" href="../dist/dqcss.css">
+	<script>
+		try {
+			var t = localStorage.getItem("dq-theme");
+			if (t) document.documentElement.dataset.theme = t;
+		} catch (e) {}
+	</script>
 </head>
 
 <body>
@@ -120,9 +126,7 @@
   <script>
     document.getElementById("theme-toggle").addEventListener("click", function () {
       var root = document.documentElement;
-      var current = root.dataset.theme ||
-        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-      var next = current === "dark" ? "light" : "dark";
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
       root.dataset.theme = next;
       try { localStorage.setItem("dq-theme", next); } catch (e) {}
     });

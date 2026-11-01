@@ -26,12 +26,11 @@
     padding-bottom: var(--dq-shadow-offset);
 }
 
-/* Dimmed backdrop with a 45deg halftone grid. Fallbacks cover browsers that don't inherit custom properties into ::backdrop. */
+/* Dimmed backdrop with a halftone grid (dots from base/halftone.css). Fallbacks cover browsers that
+   don't inherit custom properties into ::backdrop. */
 .dq-modal::backdrop {
-    --_dot: color-mix(in srgb, var(--dq-color-primary, #0000aa) 60%, transparent);
-    background-image: radial-gradient(circle at center, var(--_dot) 1.5px, transparent 2px),
-        radial-gradient(circle at center, var(--_dot) 1.5px, transparent 2px);
-    background-size: 8px 8px;
-    background-position: 0 0, 4px 4px;
+    --dq-dot-color: color-mix(in srgb, var(--dq-color-primary, #0000aa) 60%, transparent);
+    --dq-dot-radius: 1.5px;
+    --dq-dot-tile: 8px;
     background-color: color-mix(in srgb, var(--dq-color-fg, #1a1a1a) 55%, transparent);
 }

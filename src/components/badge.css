@@ -38,26 +38,18 @@
     --dq-badge-dots: color-mix(in srgb, var(--dq-color-secondary-fg) 25%, transparent);
 }
 
-/* Static halftone, larger dots toward the top-left and bottom-right corners. */
-.dq-badge--halftone::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-image: radial-gradient(circle at center, var(--dq-badge-dots) 1.25px, transparent 1.75px),
-        radial-gradient(circle at center, var(--dq-badge-dots) 1.25px, transparent 1.75px);
-    background-size: var(--dq-halftone-size) var(--dq-halftone-size);
-    background-position: 0 0, calc(var(--dq-halftone-size) / 2) calc(var(--dq-halftone-size) / 2);
-}
+/* Static halftone (dots from base/halftone.css), larger toward the top-left and bottom-right corners. */
+.dq-badge--halftone::before,
 .dq-badge--halftone::after {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-image: radial-gradient(circle at center, var(--dq-badge-dots) 2.25px, transparent 2.75px),
-        radial-gradient(circle at center, var(--dq-badge-dots) 2.25px, transparent 2.75px);
-    background-size: var(--dq-halftone-size) var(--dq-halftone-size);
-    background-position: 0 0, calc(var(--dq-halftone-size) / 2) calc(var(--dq-halftone-size) / 2);
+    --dq-dot-color: var(--dq-badge-dots);
+    --dq-dot-radius: 1.25px;
+}
+.dq-badge--halftone::after {
+    --dq-dot-radius: 2.25px;
     mask-image: radial-gradient(circle at 0 0, #000, transparent 70%),
         radial-gradient(circle at 100% 100%, #000, transparent 70%);
 }
