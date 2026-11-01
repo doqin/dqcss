@@ -23,6 +23,7 @@ Text uses IBM Plex Mono if you load it (the demo does, from Google Fonts) and fa
 | Progress | `.dq-progress` on a native `<progress>`, `--secondary`, `--success`, `--warning`, `--danger`. Omit `value` for indeterminate |
 | Badge | `.dq-badge`, `--secondary`, `--success`, `--warning`, `--danger`, `--solid`, `--halftone` |
 | Menu | `.dq-menu` with `.dq-menu__item`. `aria-selected="true"` shows the cyan selection bar |
+| Modal | `.dq-modal` on a native `<dialog>` (open with `showModal()`), `.dq-modal__actions`. Use `<form method="dialog">` for buttons that close it |
 
 Layout helpers: `.dq-container`, `.dq-stack`, `.dq-row`.
 

@@ -1,0 +1,37 @@
+/* Wraps a native <dialog>: showModal() gives focus trapping, Esc to close and inert background. */
+.dq-modal {
+    --dq-panel-pad: var(--dq-space-4);
+    width: min(100% - 2rem, 32rem);
+    max-height: calc(100vh - 4rem);
+    margin: auto;
+    padding: var(--dq-panel-pad);
+    overflow: auto;
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    color: var(--dq-color-fg);
+    box-shadow: var(--dq-shadow-offset) var(--dq-shadow-offset) 0 var(--dq-shadow-color);
+}
+.dq-modal[open] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dq-space-4);
+}
+.dq-modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--dq-space-4);
+    /* room for the buttons' drop shadow */
+    padding-right: var(--dq-shadow-offset);
+    padding-bottom: var(--dq-shadow-offset);
+}
+
+/* Dimmed backdrop with a 45deg halftone grid. Fallbacks cover browsers that don't inherit custom properties into ::backdrop. */
+.dq-modal::backdrop {
+    --_dot: color-mix(in srgb, var(--dq-color-primary, #0000aa) 60%, transparent);
+    background-image: radial-gradient(circle at center, var(--_dot) 1.5px, transparent 2px),
+        radial-gradient(circle at center, var(--_dot) 1.5px, transparent 2px);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+    background-color: color-mix(in srgb, var(--dq-color-fg, #1a1a1a) 55%, transparent);
+}
