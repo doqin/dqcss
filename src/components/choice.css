@@ -1,0 +1,77 @@
+/* Checkbox and radio: style native inputs so keyboard and screen reader behavior is untouched. */
+.dq-check,
+.dq-radio {
+    appearance: none;
+    flex: none;
+    display: inline-grid;
+    place-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0;
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    --dq-choice-shadow: inset calc(var(--dq-shadow-offset) / 4) calc(var(--dq-shadow-offset) / 4) 0 var(--dq-shadow-color);
+    box-shadow: var(--dq-choice-shadow);
+    cursor: pointer;
+}
+.dq-radio {
+    border-radius: 50%;
+}
+.dq-check::after,
+.dq-radio::after {
+    content: "";
+    background: var(--dq-color-primary-fg);
+    transform: scale(0);
+}
+.dq-check::after {
+    width: 0.75rem;
+    height: 0.75rem;
+    /* pixel-style tick */
+    clip-path: polygon(14% 44%, 0 58%, 40% 100%, 100% 22%, 86% 8%, 40% 72%);
+}
+.dq-radio::after {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+}
+.dq-check:checked,
+.dq-radio:checked {
+    background: var(--dq-color-primary);
+    box-shadow: none;
+}
+.dq-check:checked::after,
+.dq-radio:checked::after {
+    transform: scale(1);
+}
+.dq-check:focus-visible,
+.dq-radio:focus-visible {
+    outline: none;
+    box-shadow: var(--dq-ring), var(--dq-choice-shadow);
+}
+.dq-check:checked:focus-visible,
+.dq-radio:checked:focus-visible {
+    box-shadow: var(--dq-ring);
+}
+.dq-check:disabled,
+.dq-radio:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Label wrapper: <label class="dq-choice"><input class="dq-check" type="checkbox"> Text</label> */
+.dq-choice {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--dq-space-2);
+    cursor: pointer;
+}
+.dq-choice:has(:disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* the label already fades the whole row */
+.dq-choice .dq-check:disabled,
+.dq-choice .dq-radio:disabled {
+    opacity: 1;
+}

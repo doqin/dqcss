@@ -1,0 +1,18 @@
+.dq-alert {
+    --dq-alert-color: var(--dq-color-info);
+    padding: var(--dq-space-4);
+    border: var(--dq-border-width) solid var(--dq-alert-color);
+    border-radius: var(--dq-radius);
+    background: color-mix(in srgb, var(--dq-alert-color) 10%, var(--dq-color-bg));
+    box-shadow: var(--dq-shadow-offset) var(--dq-shadow-offset) 0 var(--dq-shadow-color);
+}
+.dq-alert__title {
+    margin-bottom: var(--dq-space-1);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--dq-alert-color);
+}
+
+.dq-alert--success { --dq-alert-color: var(--dq-color-success); }
+.dq-alert--warning { --dq-alert-color: var(--dq-color-warning); }
+.dq-alert--danger { --dq-alert-color: var(--dq-color-danger); }

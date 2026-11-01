@@ -1,0 +1,29 @@
+/* Selectable list: <ul class="dq-menu"><li class="dq-menu__item" aria-selected="true">… */
+.dq-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    box-shadow: var(--dq-shadow-offset) var(--dq-shadow-offset) 0 var(--dq-shadow-color);
+}
+.dq-menu__item {
+    padding: var(--dq-space-2) var(--dq-space-4);
+    cursor: pointer;
+}
+.dq-menu__item:hover,
+.dq-menu__item:focus-visible {
+    background: color-mix(in srgb, var(--dq-color-secondary) 35%, var(--dq-color-bg));
+    outline: none;
+}
+/* The classic BIOS cyan selection bar. */
+.dq-menu__item[aria-selected="true"] {
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    font-weight: 700;
+}
+.dq-menu__item[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

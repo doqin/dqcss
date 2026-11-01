@@ -1,0 +1,42 @@
+.dq-input {
+    width: 100%;
+    padding: var(--dq-space-2) var(--dq-space-3);
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    /* inset shadow is the button's shadow flipped, so the field reads as sunk in */
+    --dq-input-shadow: inset calc(var(--dq-shadow-offset) / 2) calc(var(--dq-shadow-offset) / 2) 0 var(--dq-shadow-color);
+    box-shadow: var(--dq-input-shadow);
+}
+.dq-input::placeholder {
+    color: var(--dq-color-muted);
+}
+.dq-input:focus-visible {
+    outline: none;
+    box-shadow: var(--dq-ring), var(--dq-input-shadow);
+}
+.dq-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dq-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dq-space-1);
+}
+.dq-field__label {
+    font-size: var(--dq-text-sm);
+    font-weight: 600;
+}
+.dq-field__hint {
+    font-size: var(--dq-text-sm);
+    color: var(--dq-color-muted);
+}
+
+.dq-input[aria-invalid="true"] {
+    border-color: var(--dq-color-danger);
+}
+.dq-field--error .dq-field__hint {
+    color: var(--dq-color-danger);
+}

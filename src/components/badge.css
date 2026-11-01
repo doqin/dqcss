@@ -1,0 +1,63 @@
+.dq-badge {
+    --dq-badge-color: var(--dq-color-link);
+    --dq-badge-dots: color-mix(in srgb, var(--dq-badge-color) 35%, transparent);
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 var(--dq-space-2);
+    border: var(--dq-border-width) solid var(--dq-badge-color);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    color: var(--dq-badge-color);
+    font-size: var(--dq-text-sm);
+    font-weight: 700;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    box-shadow: calc(var(--dq-shadow-offset) / 4) calc(var(--dq-shadow-offset) / 4) 0 var(--dq-shadow-color);
+}
+
+.dq-badge--success { --dq-badge-color: var(--dq-color-success); }
+.dq-badge--warning { --dq-badge-color: var(--dq-color-warning); }
+.dq-badge--danger { --dq-badge-color: var(--dq-color-danger); }
+/* Cyan is too light for text on the page background, so outline badges keep normal text. */
+.dq-badge--secondary {
+    --dq-badge-color: var(--dq-color-secondary);
+    color: var(--dq-color-fg);
+}
+
+/* Filled: text takes the page background so it flips correctly in dark mode. */
+.dq-badge--solid {
+    background: var(--dq-badge-color);
+    color: var(--dq-color-bg);
+    --dq-badge-dots: color-mix(in srgb, var(--dq-color-bg) 35%, transparent);
+}
+
+.dq-badge--solid.dq-badge--secondary {
+    color: var(--dq-color-secondary-fg);
+    --dq-badge-dots: color-mix(in srgb, var(--dq-color-secondary-fg) 25%, transparent);
+}
+
+/* Static halftone, larger dots toward the top-left and bottom-right corners. */
+.dq-badge--halftone::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle at center, var(--dq-badge-dots) 1.25px, transparent 1.75px),
+        radial-gradient(circle at center, var(--dq-badge-dots) 1.25px, transparent 1.75px);
+    background-size: var(--dq-halftone-size) var(--dq-halftone-size);
+    background-position: 0 0, calc(var(--dq-halftone-size) / 2) calc(var(--dq-halftone-size) / 2);
+}
+.dq-badge--halftone::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle at center, var(--dq-badge-dots) 2.25px, transparent 2.75px),
+        radial-gradient(circle at center, var(--dq-badge-dots) 2.25px, transparent 2.75px);
+    background-size: var(--dq-halftone-size) var(--dq-halftone-size);
+    background-position: 0 0, calc(var(--dq-halftone-size) / 2) calc(var(--dq-halftone-size) / 2);
+    mask-image: radial-gradient(circle at 0 0, #000, transparent 70%),
+        radial-gradient(circle at 100% 100%, #000, transparent 70%);
+}

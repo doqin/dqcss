@@ -1,0 +1,107 @@
+.dq-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--dq-space-2);
+    padding: var(--dq-space-2) var(--dq-space-4);
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    /* --dq-btn-press is how far the button has sunk toward its shadow */
+    --dq-btn-press: 0px;
+    --dq-btn-shadow: calc(var(--dq-shadow-offset) - var(--dq-btn-press)) calc(var(--dq-shadow-offset) - var(--dq-btn-press)) 0 var(--dq-shadow-color);
+    transform: translate(var(--dq-btn-press), var(--dq-btn-press));
+    box-shadow: var(--dq-btn-shadow);
+    cursor: pointer;
+    /* halftone dots shown on hover/press; radius grows when pressed */
+    --dq-btn-dot-color: color-mix(in srgb, var(--dq-color-primary) 35%, transparent);
+    --dq-btn-dot-radius: 1px;
+    /* outline in the button's own fill color keeps text legible over the dots */
+    --dq-btn-bg: var(--dq-color-bg);
+    -webkit-text-stroke: 4px var(--dq-btn-bg);
+    paint-order: stroke fill;
+}
+.dq-btn {
+    position: relative;
+    isolation: isolate;
+}
+/* Dots form a 45deg grid: one layer at the tile origin, one offset by half a tile. */
+.dq-btn:hover:not(:disabled),
+.dq-btn:active:not(:disabled),
+.dq-btn:hover:not(:disabled)::before,
+.dq-btn:active:not(:disabled)::before {
+    background-image: radial-gradient(
+            circle at center,
+            var(--dq-btn-dot-color) var(--_dot),
+            transparent calc(var(--_dot) + 0.5px)
+        ),
+        radial-gradient(
+            circle at center,
+            var(--dq-btn-dot-color) var(--_dot),
+            transparent calc(var(--_dot) + 0.5px)
+        );
+    background-size: var(--dq-halftone-size) var(--dq-halftone-size);
+    background-position: 0 0, calc(var(--dq-halftone-size) / 2) calc(var(--dq-halftone-size) / 2);
+    animation: dq-halftone-scroll 1s linear infinite;
+}
+.dq-btn:hover:not(:disabled),
+.dq-btn:active:not(:disabled) {
+    --_dot: var(--dq-btn-dot-radius);
+}
+/* Larger dots, revealed only near the top-left and bottom-right corners. */
+.dq-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    --_dot: calc(var(--dq-btn-dot-radius) + 1px);
+    mask-image: radial-gradient(circle at 0 0, #000, transparent 70%),
+        radial-gradient(circle at 100% 100%, #000, transparent 70%);
+}
+.dq-btn:hover:not(:disabled) {
+    --dq-btn-press: calc(var(--dq-shadow-offset) / 2);
+}
+.dq-btn:active:not(:disabled) {
+    --dq-btn-press: var(--dq-shadow-offset);
+    --dq-btn-dot-radius: 1.75px;
+}
+@keyframes dq-halftone-scroll {
+    from {
+        background-position: 0 0, calc(var(--dq-halftone-size) / 2) calc(var(--dq-halftone-size) / 2);
+    }
+    to {
+        background-position: var(--dq-halftone-size) var(--dq-halftone-size),
+            calc(var(--dq-halftone-size) * 1.5) calc(var(--dq-halftone-size) * 1.5);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .dq-btn:hover:not(:disabled),
+    .dq-btn:active:not(:disabled),
+    .dq-btn:hover:not(:disabled)::before,
+    .dq-btn:active:not(:disabled)::before {
+        animation: none;
+    }
+}
+.dq-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--dq-ring), var(--dq-btn-shadow);
+}
+.dq-btn:disabled {
+    --dq-btn-press: var(--dq-shadow-offset);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dq-btn--primary {
+    background: var(--dq-color-primary);
+    --dq-btn-bg: var(--dq-color-primary);
+    color: var(--dq-color-primary-fg);
+    --dq-btn-dot-color: color-mix(in srgb, var(--dq-color-primary-fg) 30%, transparent);
+}
+
+.dq-btn--secondary {
+    background: var(--dq-color-secondary);
+    --dq-btn-bg: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    --dq-btn-dot-color: color-mix(in srgb, var(--dq-color-secondary-fg) 25%, transparent);
+}

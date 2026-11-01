@@ -1,0 +1,76 @@
+:root {
+  /* color */
+  --dq-color-page: #aaaaaa; /* VGA light gray; components sit on --dq-color-bg */
+  --dq-color-bg: #fff;
+  --dq-color-fg: #1a1a1a;
+  --dq-color-muted: #3b3f4a;
+  --dq-color-border: #e5e7eb;
+  --dq-color-primary: #0000aa; /* classic VGA/BIOS blue */
+  --dq-color-link: #0000aa;
+  --dq-color-primary-fg: #fff;
+  --dq-color-secondary: #00aaaa; /* VGA cyan; pairs with black text, not white */
+  --dq-color-secondary-fg: #000;
+  /* status colors, from the VGA palette; brighter in dark mode */
+  --dq-color-info: var(--dq-color-link);
+  --dq-color-success: #007700;
+  --dq-color-warning: #aa5500;
+  --dq-color-danger: #aa0000;
+
+  /* type */
+  --dq-font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --dq-font-mono: ui-monospace, "Cascadia Code", Menlo, monospace;
+  --dq-font-base: "IBM Plex Mono", var(--dq-font-mono);
+  --dq-text-sm: 0.875rem;
+  --dq-text-base: 1rem;
+  --dq-text-lg: 1.25rem;
+
+  /* space */
+  --dq-space-1: 0.25rem;
+  --dq-space-2: 0.5rem;
+  --dq-space-3: 0.75rem;
+  --dq-space-4: 1rem;
+  --dq-space-6: 1.5rem;
+  --dq-space-8: 2rem;
+
+  /* shape */
+  --dq-radius: 0;
+  --dq-border-width: 2px;
+  --dq-shadow-offset: 8px;
+  --dq-shadow-color: var(--dq-color-fg);
+  --dq-checker-size: 16px;
+  --dq-checker-color: var(--dq-color-primary);
+  --dq-halftone-size: 6px;
+  --dq-progress-segment: 12px;
+  --dq-progress-gap: 4px;
+  --dq-color-focus: #ff4500;
+  --dq-ring: 0 0 0 3px var(--dq-color-focus);
+}
+
+/* Dark follows the OS unless [data-theme] on <html> forces a choice. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --dq-color-bg: #0f1115;
+    --dq-color-page: #0f1115;
+    --dq-color-fg: #e5e7eb;
+    --dq-color-muted: #9ca3af;
+    --dq-color-border: #2a2f3a;
+    --dq-color-link: #5555ff; /* bright VGA blue, readable on dark */
+    --dq-color-secondary: #55ffff;
+    --dq-color-success: #55ff55;
+    --dq-color-warning: #ffff55;
+    --dq-color-danger: #ff5555;
+  }
+}
+
+:root[data-theme="dark"] {
+  --dq-color-bg: #0f1115;
+  --dq-color-page: #0f1115;
+  --dq-color-fg: #e5e7eb;
+  --dq-color-muted: #9ca3af;
+  --dq-color-border: #2a2f3a;
+  --dq-color-link: #5555ff;
+  --dq-color-secondary: #55ffff;
+  --dq-color-success: #55ff55;
+  --dq-color-warning: #ffff55;
+  --dq-color-danger: #ff5555;
+}

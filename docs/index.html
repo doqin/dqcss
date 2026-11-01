@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dqcss</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap">
+	<link rel="stylesheet" href="../dist/dqcss.css">
+</head>
+
+<body>
+	<main class="dq-container dq-stack" style="padding-block: 2rem">
+		<h1>dqcss</h1>
+		<div class="dq-row">
+			<button class="dq-btn">Default</button>
+			<button class="dq-btn dq-btn--primary">Primary</button>
+			<button class="dq-btn dq-btn--secondary">Secondary</button>
+			<button class="dq-btn" disabled>Disabled</button>
+			<button class="dq-btn" id="theme-toggle">Toggle Theme</button>
+		</div>
+		<section class="dq-panel dq-stack">
+			<h2 class="dq-panel__title">Panel</h2>
+			<p>A static container with the same border and drop shadow as the buttons.</p>
+		</section>
+		<div class="dq-field">
+			<label class="dq-field__label" for="name">Name</label>
+			<input class="dq-input" id="name" placeholder="Type something">
+			<span class="dq-field__hint">Shown as a hint under the field.</span>
+		</div>
+		<div class="dq-field dq-field--error">
+			<label class="dq-field__label" for="email">Email</label>
+			<input class="dq-input" id="email" value="not-an-email" aria-invalid="true">
+			<span class="dq-field__hint">Enter a valid email address.</span>
+		</div>
+		<div class="dq-stack">
+			<label class="dq-choice"><input class="dq-check" type="checkbox" checked> Enable fast boot</label>
+			<label class="dq-choice"><input class="dq-check" type="checkbox"> Secure boot</label>
+			<label class="dq-choice"><input class="dq-check" type="checkbox" disabled> Locked option</label>
+			<label class="dq-choice"><input class="dq-radio" type="radio" name="boot" checked> Boot from disk</label>
+			<label class="dq-choice"><input class="dq-radio" type="radio" name="boot"> Boot from network</label>
+		</div>
+		<div class="dq-row">
+			<span class="dq-badge">Info</span>
+			<span class="dq-badge dq-badge--secondary">Cyan</span>
+			<span class="dq-badge dq-badge--solid dq-badge--secondary">Cyan</span>
+			<span class="dq-badge dq-badge--success">Ok</span>
+			<span class="dq-badge dq-badge--warning">Warn</span>
+			<span class="dq-badge dq-badge--danger">Fail</span>
+			<span class="dq-badge dq-badge--solid">New</span>
+			<span class="dq-badge dq-badge--solid dq-badge--danger dq-badge--halftone">Hot!</span>
+			<span class="dq-badge dq-badge--halftone">Beta</span>
+		</div>
+		<ul class="dq-menu" role="listbox">
+			<li class="dq-menu__item" role="option" tabindex="0">Main</li>
+			<li class="dq-menu__item" role="option" tabindex="0" aria-selected="true">Advanced</li>
+			<li class="dq-menu__item" role="option" tabindex="0">Boot</li>
+			<li class="dq-menu__item" role="option" aria-disabled="true">Security</li>
+		</ul>
+		<div class="dq-stack">
+			<progress class="dq-progress" value="65" max="100">65%</progress>
+			<progress class="dq-progress dq-progress--secondary" value="45" max="100">45%</progress>
+			<progress class="dq-progress dq-progress--success" value="100" max="100">100%</progress>
+			<progress class="dq-progress dq-progress--danger" value="20" max="100">20%</progress>
+			<progress class="dq-progress"></progress>
+		</div>
+		<div class="dq-stack">
+			<div class="dq-alert"><div class="dq-alert__title">Info</div>System will restart after saving.</div>
+			<div class="dq-alert dq-alert--success"><div class="dq-alert__title">Success</div>Settings saved.</div>
+			<div class="dq-alert dq-alert--warning"><div class="dq-alert__title">Warning</div>Unsaved changes will be lost.</div>
+			<div class="dq-alert dq-alert--danger"><div class="dq-alert__title">Error</div>Disk read failure.</div>
+		</div>
+		<div class="dq-field">
+			<label class="dq-field__label" for="off">Disabled</label>
+			<input class="dq-input" id="off" value="Can't edit" disabled>
+		</div>
+		<section class="dq-panel dq-panel--checker">
+			<div class="dq-panel__body dq-stack">
+				<h2 class="dq-panel__title">Checker panel</h2>
+				<p>Content sits on a solid body so the pattern frames it without hurting legibility.</p>
+			</div>
+		</section>
+	</main>
+	<script src="../dist/dqcss-menu.js"></script>
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var current = root.dataset.theme ||
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var next = current === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("dq-theme", next); } catch (e) {}
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "dqcss",
+  "version": "0.1.0",
+  "description": "A small, modern CSS library.",
+  "license": "MIT",
+  "style": "dist/dqcss.css",
+  "main": "dist/dqcss.css",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": "./dist/dqcss.css",
+    "./min": "./dist/dqcss.min.css",
+    "./src/*": "./src/*",
+    "./menu": "./dist/dqcss-menu.js"
+  },
+  "sideEffects": [
+    "./dist/dqcss-menu.js"
+  ],
+  "keywords": [
+    "css",
+    "library",
+    "design-system"
+  ],
+  "scripts": {
+    "build": "npm run build:css && npm run build:min && npm run build:js",
+    "build:css": "lightningcss --bundle src/index.css -o dist/dqcss.css",
+    "build:min": "lightningcss --bundle --minify --sourcemap src/index.css -o dist/dqcss.min.css",
+    "dev": "npx serve . -l 3000",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build:js": "node -e \"require('fs').copyFileSync('src/js/menu.js','dist/dqcss-menu.js')\""
+  },
+  "devDependencies": {
+    "lightningcss-cli": "^1.28.0"
+  }
+}

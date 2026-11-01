@@ -1,0 +1,41 @@
+.dq-panel,
+.dq-panel__body {
+    --dq-panel-pad: var(--dq-space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--dq-space-4);
+    padding: var(--dq-panel-pad);
+}
+.dq-panel {
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    box-shadow: var(--dq-shadow-offset) var(--dq-shadow-offset) 0 var(--dq-shadow-color);
+}
+
+.dq-panel--checker {
+    background: conic-gradient(
+            var(--dq-checker-color) 25%,
+            var(--dq-color-bg) 0 50%,
+            var(--dq-checker-color) 0 75%,
+            var(--dq-color-bg) 0
+        )
+        0 0 / calc(var(--dq-checker-size) * 2) calc(var(--dq-checker-size) * 2);
+}
+
+.dq-panel__body {
+    background: var(--dq-color-bg);
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+}
+
+/* Title bar: bleeds to the panel's inner edges, like a BIOS window header. */
+.dq-panel__title {
+    margin: calc(var(--dq-panel-pad) * -1) calc(var(--dq-panel-pad) * -1) 0;
+    padding: var(--dq-space-2) var(--dq-panel-pad);
+    border-bottom: var(--dq-border-width) solid var(--dq-color-primary);
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    font-size: var(--dq-text-base);
+    font-weight: 700;
+    text-transform: uppercase;
+}
