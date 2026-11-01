@@ -1,0 +1,56 @@
+/* On/off switch on a native checkbox: <label class="dq-choice"><input class="dq-switch" type="checkbox" role="switch"> Label</label> */
+.dq-switch {
+    --_w: 2.75rem;
+    --_h: 1.5rem;
+    --_knob-w: 0.5rem;
+    --_knob-h: 0.875rem;
+    /* thickness of the track's inset shadow (top and left) */
+    --_shadow: calc(var(--dq-shadow-offset) / 4);
+    /* gap that centers the knob in the area the shadow doesn't cover */
+    --_gap: calc((var(--_h) - var(--dq-border-width) * 2 - var(--_shadow) - var(--_knob-h)) / 2);
+    appearance: none;
+    position: relative;
+    flex: none;
+    width: var(--_w);
+    height: var(--_h);
+    margin: 0;
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    --dq-switch-shadow: inset calc(var(--dq-shadow-offset) / 4) calc(var(--dq-shadow-offset) / 4) 0 var(--dq-shadow-color);
+    box-shadow: var(--dq-switch-shadow);
+    cursor: pointer;
+}
+.dq-switch::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--_shadow) + var(--_gap));
+    left: calc(var(--_shadow) + var(--_gap));
+    width: var(--_knob-w);
+    height: var(--_knob-h);
+    background: var(--dq-color-link);
+    transition: transform 0.12s steps(3);
+}
+.dq-switch:checked {
+    background: var(--dq-color-secondary);
+}
+.dq-switch:checked::after {
+    transform: translateX(calc(var(--_w) - var(--dq-border-width) * 2 - var(--_shadow) - var(--_knob-w) - var(--_gap) * 2));
+}
+.dq-switch:focus-visible {
+    outline: none;
+    box-shadow: var(--dq-ring), var(--dq-switch-shadow);
+}
+.dq-switch:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* the label already fades the whole row */
+.dq-choice .dq-switch:disabled {
+    opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+    .dq-switch::after {
+        transition: none;
+    }
+}

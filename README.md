@@ -19,6 +19,7 @@ Text uses IBM Plex Mono if you load it (the demo does, from Google Fonts) and fa
 | Panel | `.dq-panel`, `--checker`, `__body`, `__title` (cyan title bar) |
 | Input | `.dq-input` (also `textarea`/`select`), `.dq-field` with `__label`, `__hint`, `--error`. `aria-invalid="true"` shows the error border |
 | Checkbox / radio | `.dq-check`, `.dq-radio` on native inputs, `.dq-choice` label wrapper |
+| Switch | `.dq-switch` on a native checkbox with `role="switch"`, inside `.dq-choice`. Cyan track when on |
 | Alert | `.dq-alert`, `--success`, `--warning`, `--danger`, `__title` |
 | Progress | `.dq-progress` on a native `<progress>`, `--secondary`, `--success`, `--warning`, `--danger`. Omit `value` for indeterminate |
 | Badge | `.dq-badge`, `--secondary`, `--success`, `--warning`, `--danger`, `--solid`, `--halftone` |
