@@ -26,6 +26,10 @@
 			<button class="dq-btn dq-btn--secondary">Secondary</button>
 			<button class="dq-btn" disabled>Disabled</button>
 			<button class="dq-btn" onclick="document.getElementById('demo-modal').showModal()">Open modal</button>
+			<span class="dq-tooltip">
+				<button class="dq-btn" aria-describedby="tip-hint">Hint</button>
+				<span class="dq-tooltip__text" role="tooltip" id="tip-hint">Shown on hover or focus</span>
+			</span>
 			<button class="dq-btn" id="theme-toggle">Toggle Theme</button>
 		</div>
 		<section class="dq-panel dq-stack">

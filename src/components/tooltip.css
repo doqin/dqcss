@@ -1,0 +1,49 @@
+/* CSS-only tooltip, shown on hover and keyboard focus. Link the trigger to the bubble with aria-describedby:
+   <span class="dq-tooltip"><button aria-describedby="tip">?</button><span class="dq-tooltip__text" role="tooltip" id="tip">Text</span></span> */
+.dq-tooltip {
+    --_gap: var(--dq-space-2);
+    position: relative;
+    display: inline-flex;
+}
+.dq-tooltip__text {
+    position: absolute;
+    bottom: calc(100% + var(--_gap));
+    left: 50%;
+    z-index: 10;
+    width: max-content;
+    max-width: 16rem;
+    padding: var(--dq-space-1) var(--dq-space-3);
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    font-size: var(--dq-text-sm);
+    font-weight: 600;
+    box-shadow: calc(var(--dq-shadow-offset) / 2) calc(var(--dq-shadow-offset) / 2) 0 var(--dq-shadow-color);
+    transform: translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+}
+/* Invisible bridge across the gap so the pointer can move onto the bubble without it closing. */
+.dq-tooltip__text::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    height: var(--_gap);
+}
+.dq-tooltip:hover .dq-tooltip__text,
+.dq-tooltip:focus-within .dq-tooltip__text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dq-tooltip--bottom .dq-tooltip__text {
+    top: calc(100% + var(--_gap));
+    bottom: auto;
+}
+.dq-tooltip--bottom .dq-tooltip__text::before {
+    top: auto;
+    bottom: 100%;
+}

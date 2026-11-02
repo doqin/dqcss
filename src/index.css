@@ -14,4 +14,5 @@
 @import "./components/tabs.css";
 @import "./components/table.css";
 @import "./components/modal.css";
+@import "./components/tooltip.css";
 @import "./utilities/layout.css";
