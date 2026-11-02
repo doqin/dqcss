@@ -5,7 +5,7 @@ A small CSS library with a BIOS-screen look: VGA blue and cyan, square corners, 
 ## Usage
 
 ```html
-<link rel="stylesheet" href="node_modules/dqcss/dist/dqcss.min.css">
+<link rel="stylesheet" href="node_modules/@doqin/dqcss/dist/dqcss.min.css">
 <button class="dq-btn dq-btn--primary">Click</button>
 ```
 
@@ -48,10 +48,10 @@ The CSS works on its own, except that tabs need their script to switch panels.
 - `dqcss-modal.js`: clicking the backdrop closes a `.dq-modal`. Add `data-static` to a modal to opt out.
 
 ```html
-<script src="node_modules/dqcss/dist/dqcss-menu.js"></script>
-<script src="node_modules/dqcss/dist/dqcss-tabs.js"></script>
-<script src="node_modules/dqcss/dist/dqcss-tooltip.js"></script>
-<script src="node_modules/dqcss/dist/dqcss-modal.js"></script>
+<script src="node_modules/@doqin/dqcss/dist/dqcss-menu.js"></script>
+<script src="node_modules/@doqin/dqcss/dist/dqcss-tabs.js"></script>
+<script src="node_modules/@doqin/dqcss/dist/dqcss-tooltip.js"></script>
+<script src="node_modules/@doqin/dqcss/dist/dqcss-modal.js"></script>
 ```
 
 ## Theming

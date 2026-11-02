@@ -1,8 +1,17 @@
 {
-  "name": "dqcss",
+  "name": "@doqin/dqcss",
   "version": "0.1.0",
-  "description": "A small, modern CSS library.",
+  "description": "A small CSS library with a BIOS-screen look: VGA blue and cyan, square corners and hard drop shadows.",
   "license": "MIT",
+  "author": "Nguyen Tuan Khang",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doqin/dqcss.git"
+  },
+  "homepage": "https://doqin.github.io/dqcss/",
+  "bugs": {
+    "url": "https://github.com/doqin/dqcss/issues"
+  },
   "style": "dist/dqcss.css",
   "main": "dist/dqcss.css",
   "files": [
@@ -40,5 +49,8 @@
   },
   "devDependencies": {
     "lightningcss-cli": "^1.28.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
