@@ -1,0 +1,22 @@
+/* <nav class="dq-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Here</li></ol></nav> */
+.dq-breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dq-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dq-breadcrumb li + li::before {
+    content: ">";
+    margin-right: var(--dq-space-2);
+    color: var(--dq-color-muted);
+}
+.dq-breadcrumb a:hover {
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    text-decoration: none;
+}
+.dq-breadcrumb [aria-current="page"] {
+    font-weight: 700;
+}

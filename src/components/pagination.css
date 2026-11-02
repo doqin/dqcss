@@ -1,0 +1,42 @@
+/* <nav class="dq-pagination" aria-label="Pagination"><ul><li><a class="dq-pagination__link" href="#" aria-current="page">1</a></li>… */
+.dq-pagination ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dq-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dq-pagination__link {
+    --dq-pagination-shadow: calc(var(--dq-shadow-offset) / 4) calc(var(--dq-shadow-offset) / 4) 0 var(--dq-shadow-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 var(--dq-space-2);
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+    background: var(--dq-color-bg);
+    color: var(--dq-color-fg);
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: var(--dq-pagination-shadow);
+}
+.dq-pagination__link:hover {
+    background: color-mix(in srgb, var(--dq-color-secondary) 35%, var(--dq-color-bg));
+}
+.dq-pagination__link:focus-visible {
+    outline: none;
+    box-shadow: var(--dq-ring), var(--dq-pagination-shadow);
+}
+.dq-pagination__link[aria-current="page"] {
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    font-weight: 700;
+}
+.dq-pagination__link[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}

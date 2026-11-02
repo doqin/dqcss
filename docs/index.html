@@ -20,6 +20,15 @@
 <body>
 	<main class="dq-container dq-stack" style="padding-block: 2rem">
 		<h1>dqcss</h1>
+		<nav class="dq-breadcrumb" aria-label="Breadcrumb">
+			<ol>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Setup</a></li>
+				<li aria-current="page">Boot</li>
+			</ol>
+		</nav>
+		<p>Press <kbd>F10</kbd> to save, or read the <a href="#">setup guide</a>. Set <code>--dq-color-primary</code> to retheme.</p>
+		<hr>
 		<div class="dq-row">
 			<button class="dq-btn">Default</button>
 			<button class="dq-btn dq-btn--primary">Primary</button>
@@ -98,6 +107,15 @@
 				</tbody>
 			</table>
 		</div>
+		<nav class="dq-pagination" aria-label="Pagination">
+			<ul>
+				<li><a class="dq-pagination__link" href="#" aria-disabled="true">&lt;</a></li>
+				<li><a class="dq-pagination__link" href="#" aria-current="page">1</a></li>
+				<li><a class="dq-pagination__link" href="#">2</a></li>
+				<li><a class="dq-pagination__link" href="#">3</a></li>
+				<li><a class="dq-pagination__link" href="#">&gt;</a></li>
+			</ul>
+		</nav>
 		<ul class="dq-menu" role="listbox">
 			<li class="dq-menu__item" role="option" tabindex="0">Main</li>
 			<li class="dq-menu__item" role="option" tabindex="0" aria-selected="true">Advanced</li>

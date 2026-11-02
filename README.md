@@ -27,9 +27,13 @@ Text uses IBM Plex Mono if you load it (the demo does, from Google Fonts) and fa
 | Tabs | `.dq-tabs` with `__list`, `__tab` (`role="tab"`) and `__panel` (`role="tabpanel"`). The selected tab is cyan and joins its panel. Needs `dqcss-tabs.js` to switch |
 | Table | `.dq-table` on a `<table>`, `--striped`, `.dq-table__num` for right-aligned numbers, `.dq-table-wrap` for horizontal scroll. Header row is cyan; `aria-selected="true"` on a row highlights it |
 | Tooltip | `.dq-tooltip` wrapping a trigger and a `.dq-tooltip__text` bubble (`role="tooltip"`, linked with `aria-describedby`). Above by default, `--bottom` for below. CSS-only |
+| Breadcrumb | `.dq-breadcrumb` on a `<nav>` containing an `<ol>`. `aria-current="page"` marks the current item |
+| Pagination | `.dq-pagination` on a `<nav>` with `.dq-pagination__link` anchors. `aria-current="page"` is cyan, `aria-disabled="true"` is faded |
 | Modal | `.dq-modal` on a native `<dialog>` (open with `showModal()`), `.dq-modal__actions`. Use `<form method="dialog">` for buttons that close it |
 
 Layout helpers: `.dq-container`, `.dq-stack`, `.dq-row`.
+
+Bare elements are styled too: headings, links (cyan highlight on hover), `hr`, `code`, `kbd` and `pre`.
 
 ### Optional scripts
 
