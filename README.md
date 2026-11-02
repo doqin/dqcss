@@ -28,11 +28,13 @@ Text uses IBM Plex Mono if you load it (the demo does, from Google Fonts) and fa
 | Tabs | `.dq-tabs` with `__list`, `__tab` (`role="tab"`) and `__panel` (`role="tabpanel"`). The selected tab is cyan and joins its panel. Needs `dqcss-tabs.js` to switch |
 | Table | `.dq-table` on a `<table>`, `--striped`, `.dq-table__num` for right-aligned numbers, `.dq-table-wrap` for horizontal scroll. Header row is cyan; `aria-selected="true"` on a row highlights it |
 | Tooltip | `.dq-tooltip` wrapping a trigger and a `.dq-tooltip__text` bubble (`role="tooltip"`, linked with `aria-describedby`). Above by default, `--bottom` for below. CSS-only |
+| Navbar | `.dq-navbar` with `__inner`, `__brand`, `__links`, `__link` (anchors or buttons). `aria-current="page"` shows the cyan highlight |
+| Status bar | `.dq-statusbar` with `__inner`: a cyan BIOS-style help line, good as a footer, with `<kbd>` key hints |
 | Breadcrumb | `.dq-breadcrumb` on a `<nav>` containing an `<ol>`. `aria-current="page"` marks the current item |
 | Pagination | `.dq-pagination` on a `<nav>` with `.dq-pagination__link` anchors. `aria-current="page"` is cyan, `aria-disabled="true"` is faded |
 | Modal | `.dq-modal` on a native `<dialog>` (open with `showModal()`), `.dq-modal__actions`. Use `<form method="dialog">` for buttons that close it |
 
-Layout helpers: `.dq-container`, `.dq-stack`, `.dq-row`.
+Layout helpers: `.dq-container`, `.dq-stack` (`--lg` for bigger gaps), `.dq-row`, and `.dq-grid` (auto-fitting columns; set `--dq-grid-min` to change the minimum column width).
 
 Bare elements are styled too: headings, links (cyan highlight on hover), `hr`, `code`, `kbd` and `pre`.
 
@@ -63,7 +65,7 @@ Cyan text is not readable on light backgrounds, so `--dq-color-secondary` is alw
 ```sh
 npm install
 npm run build
-npm run dev   # then open /docs/index.html
+npm run dev   # then open /docs/index.html (every component) or /examples/index.html (a sample site)
 ```
 
 ## Structure

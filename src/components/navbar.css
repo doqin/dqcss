@@ -1,0 +1,47 @@
+/* <header class="dq-navbar"><div class="dq-container dq-navbar__inner"><a class="dq-navbar__brand">…</a><ul class="dq-navbar__links"><li><a class="dq-navbar__link" aria-current="page">…
+   Links can also be <button class="dq-navbar__link">. */
+.dq-navbar {
+    background: var(--dq-color-primary);
+    color: var(--dq-color-primary-fg);
+}
+.dq-navbar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--dq-space-4);
+    padding-block: var(--dq-space-2);
+}
+.dq-navbar__brand {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.dq-navbar__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dq-space-1);
+    margin: 0 0 0 auto;
+    padding: 0;
+    list-style: none;
+}
+.dq-navbar__link {
+    display: block;
+    padding: var(--dq-space-1) var(--dq-space-3);
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.dq-navbar__link:hover,
+.dq-navbar__link:focus-visible,
+.dq-navbar__link[aria-current="page"] {
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+}
+.dq-navbar__link:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 var(--dq-border-width) var(--dq-color-focus);
+}

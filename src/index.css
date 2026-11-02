@@ -13,9 +13,11 @@
 @import "./components/badge.css";
 @import "./components/menu.css";
 @import "./components/tabs.css";
+@import "./components/navbar.css";
 @import "./components/breadcrumb.css";
 @import "./components/pagination.css";
 @import "./components/table.css";
 @import "./components/modal.css";
 @import "./components/tooltip.css";
+@import "./components/statusbar.css";
 @import "./utilities/layout.css";

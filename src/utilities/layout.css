@@ -12,3 +12,12 @@
     align-items: center;
     gap: var(--dq-space-4);
 }
+.dq-stack--lg {
+    gap: var(--dq-space-8);
+}
+/* Responsive columns that wrap on their own; gap is wider than the 8px hard shadows. */
+.dq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--dq-grid-min, 16rem), 1fr));
+    gap: var(--dq-space-6);
+}

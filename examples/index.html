@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dqcss: a BIOS-style CSS library</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap">
+	<link rel="stylesheet" href="../dist/dqcss.css">
+	<script>
+		try {
+			var t = localStorage.getItem("dq-theme");
+			if (t) document.documentElement.dataset.theme = t;
+		} catch (e) {}
+	</script>
+	<style>
+		/* page-level layout only; everything else comes from the library */
+		body { display: flex; flex-direction: column; }
+		main { flex: 1; padding-block: var(--dq-space-8); }
+		section[id] { scroll-margin-top: var(--dq-space-4); }
+	</style>
+</head>
+
+<body>
+	<header class="dq-navbar">
+		<div class="dq-container dq-navbar__inner">
+			<a class="dq-navbar__brand" href="#top">dqcss</a>
+			<ul class="dq-navbar__links">
+				<li><a class="dq-navbar__link" href="#features">Features</a></li>
+				<li><a class="dq-navbar__link" href="#components">Components</a></li>
+				<li><a class="dq-navbar__link" href="#install">Install</a></li>
+				<li><button class="dq-navbar__link" id="theme-toggle" type="button">Theme</button></li>
+			</ul>
+		</div>
+	</header>
+
+	<main class="dq-container dq-stack dq-stack--lg" id="top">
+		<nav class="dq-breadcrumb" aria-label="Breadcrumb">
+			<ol>
+				<li><a href="#top">Home</a></li>
+				<li aria-current="page">Overview</li>
+			</ol>
+		</nav>
+
+		<section class="dq-panel dq-panel--checker">
+			<div class="dq-panel__body">
+				<h1>A CSS library that looks like a BIOS screen</h1>
+				<p>VGA blue and cyan, square corners, 2px borders and hard drop shadows. Plain CSS and native
+					elements, with no framework required.</p>
+				<div class="dq-row">
+					<a class="dq-btn dq-btn--primary" href="#install">Get started</a>
+					<a class="dq-btn" href="#components">Browse components</a>
+					<span class="dq-badge dq-badge--secondary">v0.1</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="features" class="dq-stack">
+			<h2>Features</h2>
+			<div class="dq-grid">
+				<article class="dq-panel">
+					<h3 class="dq-panel__title">Hard shadows</h3>
+					<p>Buttons sink toward their shadow when hovered and pressed, with scrolling halftone dots.</p>
+				</article>
+				<article class="dq-panel">
+					<h3 class="dq-panel__title">Native elements</h3>
+					<p>Dialogs, selects, checkboxes and progress bars are styled in place, so keyboard and screen
+						readers keep working.</p>
+				</article>
+				<article class="dq-panel">
+					<h3 class="dq-panel__title">Themeable</h3>
+					<p>Every color, border width and shadow is a <code>--dq-*</code> custom property, with a dark
+						mode behind <code>data-theme="dark"</code>.</p>
+				</article>
+			</div>
+		</section>
+
+		<section id="components" class="dq-stack">
+			<h2>Components</h2>
+			<div class="dq-tabs">
+				<div class="dq-tabs__list" role="tablist">
+					<button class="dq-tabs__tab" role="tab" id="t-forms" aria-controls="p-forms" aria-selected="true">Forms</button>
+					<button class="dq-tabs__tab" role="tab" id="t-data" aria-controls="p-data">Data</button>
+					<button class="dq-tabs__tab" role="tab" id="t-feedback" aria-controls="p-feedback">Feedback</button>
+				</div>
+
+				<div class="dq-tabs__panel" role="tabpanel" id="p-forms" aria-labelledby="t-forms">
+					<form class="dq-stack" onsubmit="return false">
+						<div class="dq-field">
+							<label class="dq-field__label" for="host">Hostname</label>
+							<input class="dq-input" id="host" value="dqcss-01">
+							<span class="dq-field__hint">Lowercase letters and digits.</span>
+						</div>
+						<div class="dq-field">
+							<label class="dq-field__label" for="boot">Boot device</label>
+							<select class="dq-select" id="boot">
+								<option>Hard disk</option>
+								<option>CD-ROM</option>
+								<option>Network</option>
+							</select>
+						</div>
+						<fieldset class="dq-fieldset">
+							<legend>Options</legend>
+							<label class="dq-choice"><input class="dq-switch" type="checkbox" role="switch" checked> Fast boot</label>
+							<label class="dq-choice"><input class="dq-check" type="checkbox"> Secure boot</label>
+						</fieldset>
+						<div class="dq-row">
+							<button class="dq-btn dq-btn--primary" type="submit">Save</button>
+							<button class="dq-btn" type="reset">Reset</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="dq-tabs__panel" role="tabpanel" id="p-data" aria-labelledby="t-data" hidden>
+					<div class="dq-table-wrap">
+						<table class="dq-table dq-table--striped">
+							<thead>
+								<tr><th scope="col">Component</th><th scope="col">Element</th><th scope="col" class="dq-table__num">Scripts</th></tr>
+							</thead>
+							<tbody>
+								<tr><th scope="row">Modal</th><td>&lt;dialog&gt;</td><td class="dq-table__num">optional</td></tr>
+								<tr aria-selected="true"><th scope="row">Tabs</th><td>role="tab"</td><td class="dq-table__num">required</td></tr>
+								<tr><th scope="row">Select</th><td>&lt;select&gt;</td><td class="dq-table__num">none</td></tr>
+								<tr><th scope="row">Progress</th><td>&lt;progress&gt;</td><td class="dq-table__num">none</td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="dq-tabs__panel dq-stack" role="tabpanel" id="p-feedback" aria-labelledby="t-feedback" hidden>
+					<div class="dq-alert dq-alert--success"><div class="dq-alert__title">Saved</div>Settings written to CMOS.</div>
+					<div class="dq-alert dq-alert--warning"><div class="dq-alert__title">Warning</div>Unsaved changes will be lost.</div>
+					<progress class="dq-progress" value="70" max="100">70%</progress>
+					<div class="dq-row">
+						<span class="dq-badge">Info</span>
+						<span class="dq-badge dq-badge--solid dq-badge--danger dq-badge--halftone">Hot!</span>
+						<span class="dq-tooltip">
+							<button class="dq-btn" aria-describedby="tip">Hover me</button>
+							<span class="dq-tooltip__text" role="tooltip" id="tip">Esc dismisses this</span>
+						</span>
+						<button class="dq-btn" id="open-modal" type="button">Open modal</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="install" class="dq-stack">
+			<h2>Install</h2>
+			<p>Link the stylesheet, then use the <code>dq-</code> classes:</p>
+			<pre><code>&lt;link rel="stylesheet" href="dqcss.min.css"&gt;
+&lt;button class="dq-btn dq-btn--primary"&gt;Click&lt;/button&gt;</code></pre>
+			<p>Press <kbd>Tab</kbd> to move between controls and <kbd>Esc</kbd> to close a dialog.</p>
+		</section>
+	</main>
+
+	<dialog class="dq-modal" id="modal" aria-labelledby="modal-title">
+		<h2 class="dq-panel__title" id="modal-title">Confirm</h2>
+		<p>Discard changes and exit setup?</p>
+		<form method="dialog" class="dq-modal__actions">
+			<button class="dq-btn" value="cancel">Cancel</button>
+			<button class="dq-btn dq-btn--primary" value="ok" autofocus>Discard</button>
+		</form>
+	</dialog>
+
+	<footer class="dq-statusbar">
+		<div class="dq-container dq-statusbar__inner">
+			<span><kbd>Tab</kbd> Next</span>
+			<span><kbd>Space</kbd> Toggle</span>
+			<span><kbd>Esc</kbd> Exit</span>
+			<span>dqcss &middot; MIT</span>
+		</div>
+	</footer>
+
+	<script src="../dist/dqcss-tabs.js"></script>
+	<script src="../dist/dqcss-tooltip.js"></script>
+	<script src="../dist/dqcss-modal.js"></script>
+	<script>
+		document.getElementById("open-modal").addEventListener("click", function () {
+			document.getElementById("modal").showModal();
+		});
+		document.getElementById("theme-toggle").addEventListener("click", function () {
+			var root = document.documentElement;
+			var next = root.dataset.theme === "dark" ? "light" : "dark";
+			root.dataset.theme = next;
+			try { localStorage.setItem("dq-theme", next); } catch (e) {}
+		});
+	</script>
+</body>
+
+</html>

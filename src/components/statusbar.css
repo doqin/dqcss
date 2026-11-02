@@ -1,0 +1,16 @@
+/* BIOS-style bottom help line: <footer class="dq-statusbar"><div class="dq-container dq-statusbar__inner"><span><kbd>F1</kbd> Help</span>… */
+.dq-statusbar {
+    border-top: var(--dq-border-width) solid var(--dq-color-primary);
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    font-size: var(--dq-text-sm);
+}
+.dq-statusbar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dq-space-1) var(--dq-space-6);
+    padding-block: var(--dq-space-2);
+}
+.dq-statusbar a {
+    color: inherit;
+}

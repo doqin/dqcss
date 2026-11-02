@@ -51,16 +51,20 @@ pre {
 }
 code {
     padding: 0 0.25em;
+    color: var(--dq-color-fg);
     background: color-mix(in srgb, var(--dq-color-link) 12%, var(--dq-color-bg));
 }
 kbd {
     padding: 0 0.4em;
     border: var(--dq-border-width) solid var(--dq-color-primary);
     background: var(--dq-color-bg);
+    /* explicit, so it stays readable inside cyan areas whose text is always black */
+    color: var(--dq-color-fg);
     box-shadow: calc(var(--dq-shadow-offset) / 4) calc(var(--dq-shadow-offset) / 4) 0 var(--dq-shadow-color);
 }
 pre {
     padding: var(--dq-space-3) var(--dq-space-4);
+    color: var(--dq-color-fg);
     overflow-x: auto;
     border: var(--dq-border-width) solid var(--dq-color-primary);
     background: var(--dq-color-bg);

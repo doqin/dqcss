@@ -28,3 +28,7 @@ select {
     font: inherit;
     color: inherit;
 }
+/* Class-based display (e.g. .dq-stack) would otherwise override the hidden attribute. */
+[hidden] {
+    display: none !important;
+}
