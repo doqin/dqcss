@@ -70,8 +70,11 @@
 			<label class="dq-choice"><input class="dq-switch" type="checkbox" role="switch" checked> Wi-Fi</label>
 			<label class="dq-choice"><input class="dq-switch" type="checkbox" role="switch"> Bluetooth</label>
 			<label class="dq-choice"><input class="dq-switch" type="checkbox" role="switch" disabled> Airplane mode</label>
-			<label class="dq-choice"><input class="dq-radio" type="radio" name="boot" checked> Boot from disk</label>
-			<label class="dq-choice"><input class="dq-radio" type="radio" name="boot"> Boot from network</label>
+			<fieldset class="dq-fieldset">
+				<legend>Boot mode</legend>
+				<label class="dq-choice"><input class="dq-radio" type="radio" name="boot" checked> Boot from disk</label>
+				<label class="dq-choice"><input class="dq-radio" type="radio" name="boot"> Boot from network</label>
+			</fieldset>
 		</div>
 		<div class="dq-row">
 			<span class="dq-badge">Info</span>

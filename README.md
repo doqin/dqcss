@@ -20,6 +20,7 @@ Text uses IBM Plex Mono if you load it (the demo does, from Google Fonts) and fa
 | Input | `.dq-input` (also `textarea`), `.dq-select` on a native `<select>` with a blocky arrow, `.dq-field` with `__label`, `__hint`, `--error`. `aria-invalid="true"` shows the error border |
 | Checkbox / radio | `.dq-check`, `.dq-radio` on native inputs, `.dq-choice` label wrapper |
 | Switch | `.dq-switch` on a native checkbox with `role="switch"`, inside `.dq-choice`. Cyan track when on |
+| Fieldset | `.dq-fieldset` on a `<fieldset>` with a `<legend>`, which becomes a cyan label on the top border. Use it to group related inputs, such as a radio set |
 | Alert | `.dq-alert`, `--success`, `--warning`, `--danger`, `__title` |
 | Progress | `.dq-progress` on a native `<progress>`, `--secondary`, `--success`, `--warning`, `--danger`. Omit `value` for indeterminate |
 | Badge | `.dq-badge`, `--secondary`, `--success`, `--warning`, `--danger`, `--solid`, `--halftone` |

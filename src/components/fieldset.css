@@ -1,0 +1,24 @@
+/* <fieldset class="dq-fieldset"><legend>Title</legend>…</fieldset>; the legend sits on the top border like a BIOS group label. */
+.dq-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dq-space-3);
+    min-width: 0;
+    margin: 0;
+    padding: var(--dq-space-4);
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    border-radius: var(--dq-radius);
+}
+.dq-fieldset > legend {
+    margin-left: var(--dq-space-2);
+    padding: 0 var(--dq-space-3);
+    border: var(--dq-border-width) solid var(--dq-color-primary);
+    background: var(--dq-color-secondary);
+    color: var(--dq-color-secondary-fg);
+    font-size: var(--dq-text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.dq-fieldset:disabled > legend {
+    opacity: 0.5;
+}
