@@ -17,7 +17,7 @@ Text uses IBM Plex Mono if you load it (the demo does, from Google Fonts) and fa
 | --- | --- |
 | Button | `.dq-btn`, `--primary`, `--secondary`. Sinks toward its shadow on hover/press, with scrolling halftone dots |
 | Panel | `.dq-panel`, `--checker`, `__body`, `__title` (cyan title bar) |
-| Input | `.dq-input` (also `textarea`/`select`), `.dq-field` with `__label`, `__hint`, `--error`. `aria-invalid="true"` shows the error border |
+| Input | `.dq-input` (also `textarea`), `.dq-select` on a native `<select>` with a blocky arrow, `.dq-field` with `__label`, `__hint`, `--error`. `aria-invalid="true"` shows the error border |
 | Checkbox / radio | `.dq-check`, `.dq-radio` on native inputs, `.dq-choice` label wrapper |
 | Switch | `.dq-switch` on a native checkbox with `role="switch"`, inside `.dq-choice`. Cyan track when on |
 | Alert | `.dq-alert`, `--success`, `--warning`, `--danger`, `__title` |

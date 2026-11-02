@@ -1,4 +1,5 @@
-.dq-input {
+.dq-input,
+.dq-select {
     width: 100%;
     padding: var(--dq-space-2) var(--dq-space-3);
     border: var(--dq-border-width) solid var(--dq-color-primary);
@@ -11,11 +12,13 @@
 .dq-input::placeholder {
     color: var(--dq-color-muted);
 }
-.dq-input:focus-visible {
+.dq-input:focus-visible,
+.dq-select:focus-visible {
     outline: none;
     box-shadow: var(--dq-ring), var(--dq-input-shadow);
 }
-.dq-input:disabled {
+.dq-input:disabled,
+.dq-select:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
@@ -34,9 +37,38 @@
     color: var(--dq-color-muted);
 }
 
-.dq-input[aria-invalid="true"] {
+.dq-input[aria-invalid="true"],
+.dq-select[aria-invalid="true"] {
     border-color: var(--dq-color-danger);
 }
 .dq-field--error .dq-field__hint {
     color: var(--dq-color-danger-text);
+}
+
+/* Native <select> keeps its popup and keyboard behavior; only the closed box is restyled. */
+.dq-select {
+    --_arrow: var(--dq-color-link);
+    appearance: none;
+    padding-right: 2.5rem;
+    cursor: pointer;
+    /* blocky down arrow from two half-squares, centered in the area the 4px inset shadow leaves free */
+    background-image: linear-gradient(45deg, transparent 50%, var(--_arrow) 50%),
+        linear-gradient(-45deg, transparent 50%, var(--_arrow) 50%);
+    background-repeat: no-repeat;
+    background-size: 0.4rem 0.4rem;
+    background-position: calc(100% - 1.2rem - 0.4rem) calc(50% + var(--dq-shadow-offset) / 4),
+        calc(100% - 1.2rem) calc(50% + var(--dq-shadow-offset) / 4);
+}
+.dq-select:disabled {
+    cursor: not-allowed;
+}
+.dq-select option {
+    background: var(--dq-color-bg);
+    color: var(--dq-color-fg);
+}
+/* A multi-row listbox has no dropdown arrow. */
+.dq-select[multiple],
+.dq-select[size]:not([size="0"], [size="1"]) {
+    padding-right: var(--dq-space-3);
+    background-image: none;
 }
