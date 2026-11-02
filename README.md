@@ -42,10 +42,14 @@ The CSS works on its own, except that tabs need their script to switch panels.
 
 - `dqcss-menu.js`: arrow keys, Home/End, Enter/Space selection and a `dq-select` event for `.dq-menu`.
 - `dqcss-tabs.js`: click and arrow-key tab switching, Home/End, panel show/hide and a `dq-tab-select` event for `.dq-tabs`.
+- `dqcss-tooltip.js`: Esc dismisses a visible `.dq-tooltip`.
+- `dqcss-modal.js`: clicking the backdrop closes a `.dq-modal`. Add `data-static` to a modal to opt out.
 
 ```html
 <script src="node_modules/dqcss/dist/dqcss-menu.js"></script>
 <script src="node_modules/dqcss/dist/dqcss-tabs.js"></script>
+<script src="node_modules/dqcss/dist/dqcss-tooltip.js"></script>
+<script src="node_modules/dqcss/dist/dqcss-modal.js"></script>
 ```
 
 ## Theming
